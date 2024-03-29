@@ -72,4 +72,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	print(ray_cast_3d.getcollider())
+	if Input.is_action_just_pressed("interact"):
+		print(ray_cast_3d.get_collider())
