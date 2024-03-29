@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2ctfiigi4dqg"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_obvou"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_obvou")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 185.0
+offset_top = 203.0
+offset_right = 553.0
+offset_bottom = 357.0
+text = "Player 1"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+offset_left = 650.0
+offset_top = 203.0
+offset_right = 1018.0
+offset_bottom = 357.0
+text = "Player 2"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
