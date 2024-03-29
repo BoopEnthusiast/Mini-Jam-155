@@ -18,6 +18,9 @@ var mouse_sensitivity := 0.005
 func _ready() -> void:
 	# Remove the mouse from the screen and just capture its movement
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	# put in group 'player' to differentiate from other nodes
+	add_to_group("player")
 
 
 func _input(event) -> void:
