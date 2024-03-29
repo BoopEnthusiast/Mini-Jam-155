@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceiq4g85cujqh"]
+[gd_scene load_steps=10 format=3 uid="uid://ceiq4g85cujqh"]
 
 [ext_resource type="Texture2D" uid="uid://j6wq2pivlp7x" path="res://resources/Wall_0.png" id="1_p4ad4"]
 [ext_resource type="PackedScene" uid="uid://cdrqoea37yvyw" path="res://scenes/player.tscn" id="2_cyycs"]
@@ -57,11 +57,14 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_xbgh8"]
 image = SubResource("Image_miyjn")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_38te1"]
+size = Vector3(5, 5, 5)
+
 [sub_resource type="MeshLibrary" id="MeshLibrary_jlkc4"]
 item/0/name = "CubeModel"
 item/0/mesh = SubResource("ArrayMesh_ssdao")
 item/0/mesh_transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-item/0/shapes = []
+item/0/shapes = [SubResource("BoxShape3D_38te1"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
 item/0/preview = SubResource("ImageTexture_xbgh8")
