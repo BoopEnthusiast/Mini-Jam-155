@@ -16,3 +16,7 @@ func _process(delta):
 func _on_button_pressed():
 	get_tree().change_scene_to_packed(player_1_scene)
 	
+
+
+func _on_button_2_pressed():
+	get_tree().change_scene_to_packed(player_2_scene)
