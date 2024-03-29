@@ -99,3 +99,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8427, 9.0302, -26.7966)
 size = Vector3(131.288, 20.7207, 182.46)
 camera_attributes = ExtResource("4_vfqo7")
 data = ExtResource("5_4gg3h")
+
+[node name="Sector1Nodes" type="Node" parent="."]
+
+[node name="Sector2Nodes" type="Node" parent="."]
+
+[node name="Sector3Nodes" type="Node" parent="."]
+
+[node name="Sector4Nodes" type="Node" parent="."]
