@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://ceiq4g85cujqh"]
 
 [node name="Player1Main" type="Node3D"]
+
+[node name="SkyLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.680325, 0.568858, -0.462124, -0.0770317, 0.682539, 0.726778, 0.728851, -0.458847, 0.508169, -5.05686, 2.9277, -4.4076)
