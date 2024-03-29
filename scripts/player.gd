@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var ray_cast_3d = $Camera/RayCast3D
+@onready var ray_cast_3d = $Camera/Ray
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -73,4 +73,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("interact"):
-		print(ray_cast_3d.get_collider())
+		var collided_object = ray_cast_3d.get_collider()
+		if collided_object.has_method("interact"):
+			collided_object.interact()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ceiq4g85cujqh"]
+[gd_scene load_steps=19 format=3 uid="uid://ceiq4g85cujqh"]
 
 [ext_resource type="Texture2D" uid="uid://j6wq2pivlp7x" path="res://resources/Wall_0.png" id="1_p4ad4"]
 [ext_resource type="PackedScene" uid="uid://cdrqoea37yvyw" path="res://scenes/player.tscn" id="2_cyycs"]
 [ext_resource type="Environment" uid="uid://dfxdmehvvpit8" path="res://resources/environment.tres" id="3_vj4ac"]
 [ext_resource type="CameraAttributesPractical" uid="uid://bemh57ngvv2x8" path="res://resources/camera_attributes.tres" id="4_vfqo7"]
 [ext_resource type="VoxelGIData" uid="uid://ffy7n63o4ek3" path="res://resources/player_1_main.VoxelGI_data.res" id="5_4gg3h"]
+[ext_resource type="Script" path="res://scripts/CodeDoor.gd" id="6_gfsmo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqmxc"]
 resource_name = "material_0"
@@ -73,10 +74,53 @@ item/0/navigation_layers = 1
 item/0/preview = SubResource("ImageTexture_xbgh8")
 metadata/_editor_source_scene = "res://scenes/wall_cube.tscn"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s41ou"]
+size = Vector3(1, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hwo7"]
+size = Vector3(1, 5, 5)
+
+[sub_resource type="Animation" id="Animation_30eee"]
+resource_name = "open_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sector1Nodes/Puzzle1Door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_grore"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sector1Nodes/Puzzle1Door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0cvn"]
+_data = {
+"RESET": SubResource("Animation_grore"),
+"open_door": SubResource("Animation_30eee")
+}
+
 [node name="Player1Main" type="Node3D"]
 
 [node name="SkyLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.680325, 0.568858, -0.462124, -0.0770317, 0.682539, 0.726778, 0.728851, -0.458847, 0.508169, -5.05686, 2.9277, -4.4076)
+transform = Transform3D(0.680325, 0.568858, -0.462124, -0.0770317, 0.682539, 0.726778, 0.728851, -0.458847, 0.508169, -5.05686, 34.898, -4.4076)
+light_energy = 3.0
 
 [node name="StaticMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
@@ -101,6 +145,33 @@ camera_attributes = ExtResource("4_vfqo7")
 data = ExtResource("5_4gg3h")
 
 [node name="Sector1Nodes" type="Node" parent="."]
+
+[node name="Puzzle1Door" type="StaticBody3D" parent="Sector1Nodes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 10, 2)
+script = ExtResource("6_gfsmo")
+
+[node name="Collider" type="CollisionShape3D" parent="Sector1Nodes/Puzzle1Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+shape = SubResource("BoxShape3D_s41ou")
+
+[node name="Mesh" type="MeshInstance3D" parent="Sector1Nodes/Puzzle1Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("BoxMesh_6hwo7")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sector1Nodes/Puzzle1Door"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, 2.826, -2)
+light_color = Color(0.643137, 0.996078, 0.788235, 1)
+light_energy = 16.0
+shadow_enabled = true
+spot_range = 7.70748
+spot_attenuation = 0.189464
+spot_angle = 50.76
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sector1Nodes/Puzzle1Door"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_q0cvn")
+}
 
 [node name="Sector2Nodes" type="Node" parent="."]
 

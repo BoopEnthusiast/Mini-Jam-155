@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://d2ctfiigi4dqg"]
 
-[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_obvou"]
+[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_sj62j"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_obvou")
+script = ExtResource("1_sj62j")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
