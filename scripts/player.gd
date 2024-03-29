@@ -5,6 +5,9 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+
+var wind_force = Vector3.ZERO
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -51,10 +54,15 @@ func camera_look(movement: Vector2) -> void:
 	main_camera.rotate_object_local(Vector3.RIGHT, -camera_rotation.y)
 
 func _physics_process(delta):
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	
+	# Apply wind force to character's velocity
+	velocity += wind_force * delta
+	move_and_slide()
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -76,3 +84,9 @@ func _physics_process(delta):
 		var collided_object = ray_cast_3d.get_collider()
 		if collided_object.has_method("interact"):
 			collided_object.interact()
+
+func apply_wind_force(direction, force):
+	wind_force = direction.normalized() * force
+
+func remove_wind_force():
+	wind_force = Vector3.ZERO
