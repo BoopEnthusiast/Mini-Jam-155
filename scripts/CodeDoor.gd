@@ -3,10 +3,15 @@ class_name CodeDoor
 
 var open: bool = false
 var numbers: Array[int] = [0, 0, 0]
-@export var unlock_code: Array[int] = [1, 9, 2]
+var unlock_code: Array[int]
 
 # Get nodes
 @onready var animation_player = $"../AnimationPlayer"
+
+
+func _ready():
+	unlock_code = get_parent().unlock_code
+
 
 func _on_number_1_number_changed(number: int) -> void:
 		numbers[0] = number

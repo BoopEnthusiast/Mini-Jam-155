@@ -78,6 +78,8 @@ func _physics_process(delta):
 	velocity += wind_force
 	if is_on_wall():
 		velocity += get_wall_normal() * wind_force.length()
+	if velocity.y > 5:
+		velocity.y = 5
 	
 	move_and_slide()
 	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://di5my0u7giody"]
+[gd_scene load_steps=13 format=3 uid="uid://di5my0u7giody"]
 
 [ext_resource type="Script" path="res://scripts/CodeDoor.gd" id="1_e7b6b"]
+[ext_resource type="Script" path="res://scenes/code_door_passthrough.gd" id="1_tf2k0"]
 [ext_resource type="Script" path="res://scripts/number_flip.gd" id="2_s65x6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s41ou"]
@@ -58,6 +59,7 @@ _data = {
 }
 
 [node name="CodeDoor" type="Node3D"]
+script = ExtResource("1_tf2k0")
 
 [node name="CodeDoor" type="StaticBody3D" parent="."]
 script = ExtResource("1_e7b6b")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtiovgcffqacj"]
+
+[ext_resource type="Script" path="res://scripts/wind_new.gd" id="1_nd0sf"]
+[ext_resource type="Material" uid="uid://dkuxdwnmwq06k" path="res://resources/wind_new_particle_resource.tres" id="2_gqvak"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58aw4"]
+size = Vector3(5, 5, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lymrb"]
+shading_mode = 0
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_noopt"]
+material = SubResource("StandardMaterial3D_lymrb")
+radius = 0.01
+section_length = 0.1
+section_rings = 1
+cap_top = false
+cap_bottom = false
+
+[node name="Wind1" type="Area3D"]
+script = ExtResource("1_nd0sf")
+direction = Vector3(0, 0, 1)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_58aw4")
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+amount = 271
+lifetime = 2.0
+randomness = 0.3
+visibility_aabb = AABB(-2.5, -2.5, -12.5, 5, 5, 25)
+trail_enabled = true
+process_material = ExtResource("2_gqvak")
+draw_pass_1 = SubResource("TubeTrailMesh_noopt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
