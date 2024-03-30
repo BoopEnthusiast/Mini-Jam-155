@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ceiq4g85cujqh"]
+[gd_scene load_steps=15 format=3 uid="uid://ceiq4g85cujqh"]
 
 [ext_resource type="Texture2D" uid="uid://j6wq2pivlp7x" path="res://resources/Wall_0.png" id="1_p4ad4"]
 [ext_resource type="PackedScene" uid="uid://cdrqoea37yvyw" path="res://scenes/player.tscn" id="2_cyycs"]
@@ -6,6 +6,7 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://bemh57ngvv2x8" path="res://resources/camera_attributes.tres" id="4_vfqo7"]
 [ext_resource type="VoxelGIData" uid="uid://ffy7n63o4ek3" path="res://resources/player_1_main.VoxelGI_data.res" id="5_4gg3h"]
 [ext_resource type="PackedScene" uid="uid://di5my0u7giody" path="res://scenes/code_door.tscn" id="6_x1w5q"]
+[ext_resource type="PackedScene" uid="uid://cwk45vfkiwwgs" path="res://scenes/wind.tscn" id="7_fcxtb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqmxc"]
 resource_name = "material_0"
@@ -115,3 +116,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 7.5, 2)
 [node name="Sector3Nodes" type="Node" parent="."]
 
 [node name="Sector4Nodes" type="Node" parent="."]
+
+[node name="WindArea3D" parent="." instance=ExtResource("7_fcxtb")]
+transform = Transform3D(8.455, 0, 0, 0, 8.455, 0, 0, 0, 8.455, 5.03672, 10.4271, 0)

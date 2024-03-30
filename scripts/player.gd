@@ -22,9 +22,6 @@ var mouse_sensitivity := 0.005
 func _ready() -> void:
 	# Remove the mouse from the screen and just capture its movement
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	# put in group 'player' to differentiate from other nodes
-	add_to_group("player")
 
 
 func _input(event) -> void:
@@ -61,7 +58,6 @@ func _physics_process(delta):
 	
 	# Apply wind force to character's velocity
 	velocity += wind_force * delta
-	move_and_slide()
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
