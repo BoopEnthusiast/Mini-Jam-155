@@ -11,28 +11,24 @@ emission_shape_offset = Vector3(-4, 0, 0)
 emission_shape_scale = Vector3(1, 4, 4)
 emission_shape = 3
 emission_box_extents = Vector3(1, 1, 1)
-gravity = Vector3(30, 0, 0)
+gravity = Vector3(7, 0, 0)
 turbulence_enabled = true
 turbulence_noise_scale = 5.0
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_usq75"]
-sections = 2
-section_length = 0.1
+radius = 0.05
+section_length = 0.001
 
 [node name="WindArea3D" type="Area3D"]
 transform = Transform3D(8.455, 0, 0, 0, 8.455, 0, 0, 0, 8.455, 0, 0, 0)
 script = ExtResource("1_cklvw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_apmft")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-amount = 200
-amount_ratio = 0.8
-lifetime = 6.0
-speed_scale = 1.5
+amount = 150
+lifetime = 3.0
 trail_enabled = true
 trail_lifetime = 0.71
 process_material = SubResource("ParticleProcessMaterial_pwk0d")
