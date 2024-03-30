@@ -1,0 +1,49 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://dm7po8t0ejfpl"]
+
+[ext_resource type="Texture2D" uid="uid://bnuegoluusid5" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_Color.png" id="1_7hq84"]
+[ext_resource type="Texture2D" uid="uid://bg7gm68k0586s" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_Displacement.png" id="2_xgkm1"]
+[ext_resource type="Texture2D" uid="uid://bjve4udoigyjy" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_NormalGL.png" id="3_ydrfe"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_erjmx"]
+texture = ExtResource("1_7hq84")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_pkym4"]
+texture = ExtResource("2_xgkm1")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_pxdkd"]
+texture = ExtResource("3_ydrfe")
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_4;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	NORMAL_MAP = vec3(n_out4p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-555.24, 214.702)
+nodes/fragment/0/position = Vector2(360, 260)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_erjmx")
+nodes/fragment/2/position = Vector2(-100, 100)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_pkym4")
+nodes/fragment/3/position = Vector2(-640, 580)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_pxdkd")
+nodes/fragment/4/position = Vector2(-360, 280)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 4, 0, 0, 9)
