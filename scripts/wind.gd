@@ -3,9 +3,6 @@ extends Area3D
 var wind_direction = Vector3(1, 0, 0) # wind direction
 var wind_force = 20 # wind force
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	set_process(true)
 
 # Stop applying force when body exits area3D
 func _on_Area3D_body_entered(body):

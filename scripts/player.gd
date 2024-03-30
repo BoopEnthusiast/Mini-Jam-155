@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name Player
 
 @onready var ray_cast_3d = $Camera/Ray
 
@@ -6,7 +7,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 
-var wind_force = Vector3.ZERO
+var wind_force := Vector3.ZERO
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -15,7 +16,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var main_camera := $Camera
 
 # Make the camera variables
-var camera_rotation = Vector2(0, 0)
+var camera_rotation := Vector2(0, 0)
 var mouse_sensitivity := 0.005
 
 
@@ -35,6 +36,7 @@ func _input(event) -> void:
 		var relative_position = event.relative * mouse_sensitivity
 		camera_look(relative_position)
 
+
 # Rotate the camera
 func camera_look(movement: Vector2) -> void:
 	# Add how much the camera has moved to the camera rotation
@@ -50,14 +52,12 @@ func camera_look(movement: Vector2) -> void:
 	rotate_object_local(Vector3.UP, -camera_rotation.x)
 	main_camera.rotate_object_local(Vector3.RIGHT, -camera_rotation.y)
 
+
 func _physics_process(delta):
 	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
-	# Apply wind force to character's velocity
-	velocity += wind_force * delta
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -73,7 +73,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
+	# Apply wind force to character's velocity
+	velocity += wind_force
+	if is_on_wall():
+		velocity += get_wall_normal() * wind_force.length()
+	
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("interact"):
@@ -81,9 +86,3 @@ func _physics_process(delta):
 		if collided_object:
 			if collided_object.has_method("interact"):
 				collided_object.interact()
-
-func apply_wind_force(direction, force):
-	wind_force = direction.normalized() * force
-
-func remove_wind_force():
-	wind_force = Vector3.ZERO
