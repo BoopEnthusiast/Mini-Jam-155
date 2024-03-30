@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mpjuh"]
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_hak11")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -17,6 +17,7 @@ mesh = SubResource("CapsuleMesh_mpjuh")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.633457, 0)
+current = true
 
 [node name="Ray" type="RayCast3D" parent="Camera"]
 target_position = Vector3(0, 0, -5)
