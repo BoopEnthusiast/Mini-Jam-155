@@ -8,23 +8,25 @@ var numbers: Array[int] = [0, 0, 0]
 # Get nodes
 @onready var animation_player = $"../AnimationPlayer"
 
-
 func _on_number_1_number_changed(number: int) -> void:
-	numbers[0] = number
-	check_if_unlocked()
+		numbers[0] = number
+		check_if_unlocked()
 
 
 func _on_number_2_number_changed(number: int) -> void:
-	numbers[1] = number
-	check_if_unlocked()
+		numbers[1] = number
+		check_if_unlocked()
 
 
 func _on_number_3_number_changed(number: int) -> void:
-	numbers[2] = number
-	check_if_unlocked()
+		numbers[2] = number
+		check_if_unlocked()
 
+func is_open() -> bool:
+	return open
 
 func check_if_unlocked() -> void:
 	if not open and numbers == unlock_code:
 		open = true
 		animation_player.play("open_door")
+		
