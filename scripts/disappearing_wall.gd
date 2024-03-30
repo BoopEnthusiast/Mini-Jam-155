@@ -8,6 +8,11 @@ var open = false
 @onready var timer = $Timer
 
 
+func _ready():
+	var time_length = randf_range(0, 30)
+	timer.start(time_length)
+
+
 func _on_timeout():
 	visible = !visible
 	if collision_layer == 0:
@@ -16,4 +21,5 @@ func _on_timeout():
 	else:
 		collision_layer = 0
 		collision_mask = 0
-	timer.start(randf_range(min_time, max_time))
+	var time_length = randf_range(min_time, max_time)
+	timer.start(time_length)

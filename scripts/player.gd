@@ -78,8 +78,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		var collided_object = ray_cast_3d.get_collider()
-		if collided_object.has_method("interact"):
-			collided_object.interact()
+		if collided_object:
+			if collided_object.has_method("interact"):
+				collided_object.interact()
 
 func apply_wind_force(direction, force):
 	wind_force = direction.normalized() * force
