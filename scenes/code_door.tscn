@@ -71,13 +71,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("BoxMesh_6hwo7")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CodeDoor"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, 2.826, -2)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1, 2.08399, -2)
 light_color = Color(0.643137, 0.996078, 0.788235, 1)
 light_energy = 16.0
 shadow_enabled = true
-spot_range = 7.70748
-spot_attenuation = 0.189464
-spot_angle = 50.76
+spot_range = 6.08776
+spot_angle = 48.6971
+spot_angle_attenuation = 0.482969
 
 [node name="Numbers" type="Node3D" parent="CodeDoor"]
 
