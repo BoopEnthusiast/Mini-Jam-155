@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ceiq4g85cujqh"]
+[gd_scene load_steps=26 format=3 uid="uid://ceiq4g85cujqh"]
 
 [ext_resource type="Texture2D" uid="uid://bnuegoluusid5" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_Color.png" id="1_sfgak"]
 [ext_resource type="PackedScene" uid="uid://cdrqoea37yvyw" path="res://scenes/player.tscn" id="2_cyycs"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d2vo4krpaidd0" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_Roughness.png" id="5_mupxt"]
 [ext_resource type="PackedScene" uid="uid://di5my0u7giody" path="res://scenes/code_door.tscn" id="6_x1w5q"]
 [ext_resource type="PackedScene" uid="uid://b2afshvm0cyyr" path="res://scenes/disappearing_Wall.tscn" id="7_npcjg"]
+[ext_resource type="Script" path="res://scenes/num_clues.gd" id="11_bbhth"]
 [ext_resource type="PackedScene" uid="uid://dtiovgcffqacj" path="res://scenes/wind_new_5.tscn" id="12_6uw4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmgr0"]
@@ -82,6 +83,18 @@ metadata/_editor_source_scene = "res://scenes/wall_cube.tscn"
 [sub_resource type="TextMesh" id="TextMesh_um7ih"]
 text = "X-"
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpnke"]
+size = Vector3(0.169922, 1.42407, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_6r2xw"]
+text = "0"
+
+[sub_resource type="TextMesh" id="TextMesh_p0x2s"]
+text = "0"
+
+[sub_resource type="TextMesh" id="TextMesh_6uftp"]
+text = "0"
+
 [node name="Player1Main" type="Node3D"]
 
 [node name="StaticMap" type="GridMap" parent="."]
@@ -124,6 +137,44 @@ mesh = SubResource("TextMesh_um7ih")
 [node name="X2" type="MeshInstance3D" parent="Sector1Nodes/Puzzle1Nodes/CodeDoor2"]
 transform = Transform3D(-1.63913e-07, 0, -4.83819, 0, 4.8382, 0, 4.83819, 0, -1.63913e-07, 0.617577, 0, -3.95586)
 mesh = SubResource("TextMesh_um7ih")
+
+[node name="numClues" type="Node3D" parent="Sector1Nodes/Puzzle1Nodes"]
+
+[node name="Number1" type="StaticBody3D" parent="Sector1Nodes/Puzzle1Nodes/numClues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1)
+script = ExtResource("11_bbhth")
+number = 4
+
+[node name="Collider" type="CollisionShape3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number1"]
+shape = SubResource("BoxShape3D_fpnke")
+
+[node name="Mesh" type="MeshInstance3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number1"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -0.189, 8, -6.97202)
+mesh = SubResource("TextMesh_6r2xw")
+
+[node name="Number2" type="StaticBody3D" parent="Sector1Nodes/Puzzle1Nodes/numClues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2)
+script = ExtResource("11_bbhth")
+number = 1
+
+[node name="Collider" type="CollisionShape3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number2"]
+shape = SubResource("BoxShape3D_fpnke")
+
+[node name="Mesh" type="MeshInstance3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number2"]
+transform = Transform3D(-8.74228e-07, 0, -20, 0, 20, 0, 20, 0, -8.74228e-07, 7.47725, 8, 2.33667)
+mesh = SubResource("TextMesh_p0x2s")
+
+[node name="Number3" type="StaticBody3D" parent="Sector1Nodes/Puzzle1Nodes/numClues"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -3)
+script = ExtResource("11_bbhth")
+number = 7
+
+[node name="Collider" type="CollisionShape3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number3"]
+shape = SubResource("BoxShape3D_fpnke")
+
+[node name="Mesh" type="MeshInstance3D" parent="Sector1Nodes/Puzzle1Nodes/numClues/Number3"]
+transform = Transform3D(-20, 0, -1.74846e-06, 0, 20, 0, 1.74846e-06, 0, -20, -0.334792, 8, 10.9848)
+mesh = SubResource("TextMesh_6uftp")
 
 [node name="Appearing1Cubes" type="Node" parent="Sector1Nodes"]
 
