@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://y7wss2pmkpjg"]
+
+[ext_resource type="Script" path="res://scripts/lever.gd" id="1_qpim2"]
+[ext_resource type="Script" path="res://scripts_lever_signals.gd" id="2_gsbfl"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wkmpp"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 3.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ilis6"]
+height = 3.0
+radius = 0.25
+
+[sub_resource type="Animation" id="Animation_7x7da"]
+resource_name = "lever_push"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeverBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.436332), Vector3(0, 0, 0.436332)]
+}
+
+[sub_resource type="Animation" id="Animation_8un8a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeverBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.436332)]
+}
+
+[sub_resource type="Animation" id="Animation_qv0s2"]
+resource_name = "lever_pull"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeverBody:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.436332), Vector3(0, 0, -0.436332)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbjni"]
+_data = {
+"RESET": SubResource("Animation_8un8a"),
+"lever_pull": SubResource("Animation_qv0s2"),
+"lever_push": SubResource("Animation_7x7da")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_fgpti"]
+size = Vector3(3, 0.5, 1)
+
+[node name="Lever" type="Node3D"]
+script = ExtResource("1_qpim2")
+
+[node name="LeverBody" type="StaticBody3D" parent="."]
+transform = Transform3D(0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0, 1, 0, 0.298827, 0)
+script = ExtResource("2_gsbfl")
+
+[node name="LeverMesh" type="MeshInstance3D" parent="LeverBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("CylinderMesh_wkmpp")
+
+[node name="Collider" type="CollisionShape3D" parent="LeverBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CylinderShape3D_ilis6")
+
+[node name="LeverAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xbjni")
+}
+
+[node name="BaseMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_fgpti")
+skeleton = NodePath("../LeverBody/LeverMesh")
+
+[connection signal="interacted" from="LeverBody" to="." method="_on_lever_body_interacted"]
