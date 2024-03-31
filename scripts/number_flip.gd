@@ -11,6 +11,7 @@ signal number_changed(number: int)
 
 
 func interact():
+	print("interacting with ",self)
 	if !door_node.is_open():
 		number += 1
 		if number > 9:
