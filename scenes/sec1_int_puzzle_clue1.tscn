@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://8urt6jbt1ilc"]
+
+[sub_resource type="TextMesh" id="TextMesh_odvk7"]
+text = "Which switch should you pull
+in the cross formation of switches?  
+
+Yes"
+
+[sub_resource type="BoxMesh" id="BoxMesh_uvdti"]
+
+[node name="IntPuzzle1Clue" type="Node3D"]
+
+[node name="text" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_odvk7")
+
+[node name="Cross" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, 1, 0)
+mesh = SubResource("BoxMesh_uvdti")
+
+[node name="Cross2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 0.05, 0, 1, 0)
+mesh = SubResource("BoxMesh_uvdti")
