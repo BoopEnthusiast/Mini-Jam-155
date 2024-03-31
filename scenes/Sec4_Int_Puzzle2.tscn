@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bingprnrckh2r"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_2mfmx"]
+
+[sub_resource type="TextMesh" id="TextMesh_phxdx"]
+text = "When all letters must be used,
+load this crate of mine with
+two-and-seventy ewers of grog"
+font = ExtResource("1_2mfmx")
+
+[node name="Sec4IntPuzzle2" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_phxdx")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyrwpccu37x2l"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_nao1c"]
+
+[sub_resource type="TextMesh" id="TextMesh_soq80"]
+text = "When 10 equals 2,
+magenta is key"
+font = ExtResource("1_nao1c")
+
+[node name="Secr4Cross" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_soq80")

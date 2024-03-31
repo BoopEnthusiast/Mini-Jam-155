@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkdvvpdjsc0lb"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_1hcth"]
+
+[sub_resource type="TextMesh" id="TextMesh_hwpy6"]
+text = "If you-nary can work out
+when to input the same code
+you did at the start of the maze,
+I-nary will be very proud"
+font = ExtResource("1_1hcth")
+
+[node name="Sec4Cross2" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_hwpy6")

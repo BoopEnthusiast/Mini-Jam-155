@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://3k7drxp25v2"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_mvcfw"]
+
+[sub_resource type="TextMesh" id="TextMesh_vkwnb"]
+text = "Th lngst nglsh wrd wth
+n cmmn vwls"
+font = ExtResource("1_mvcfw")
+
+[node name="Sec2IntPuzzle1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_vkwnb")

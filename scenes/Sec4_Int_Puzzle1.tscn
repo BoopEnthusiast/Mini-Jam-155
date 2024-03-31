@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnxtiu5g3xat4"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_st10r"]
+
+[sub_resource type="TextMesh" id="TextMesh_4nx20"]
+text = "One day, the king of the jungle (lion)
+said to his friend (snake):
+‘did you see a trio of devolved
+humans (monkey x3) go by here earlier?’. 
+Ceasing his wriggling, the latter (snake) replied:
+‘all I’ve seen today are an ursine (bear)
+and a pair of pachyderms (elephant x2).’ 
+The king (lion) snorted, muttering
+that a nice ruminant (antelope)
+for supper would have to do instead"
+font = ExtResource("1_st10r")
+
+[node name="Sec4IntPuzzle1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_4nx20")

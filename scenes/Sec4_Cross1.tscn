@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://db3dquroq2dvu"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_2kwx1"]
+
+[sub_resource type="TextMesh" id="TextMesh_q2dp2"]
+text = "When you need to get
+to the root of the problem,
+the numbers you seek are:
+
+1849, 196, 4624"
+font = ExtResource("1_2kwx1")
+
+[node name="Sec4Cross1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_q2dp2")
