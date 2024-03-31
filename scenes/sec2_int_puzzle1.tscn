@@ -3,8 +3,8 @@
 [ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_mvcfw"]
 
 [sub_resource type="TextMesh" id="TextMesh_vkwnb"]
-text = "Th lngst nglsh wrd wth
-n cmmn vwls"
+text = "They say there’s a pot of
+gold at the end of the ROYGBIV"
 font = ExtResource("1_mvcfw")
 
 [node name="Sec2IntPuzzle1" type="Node3D"]

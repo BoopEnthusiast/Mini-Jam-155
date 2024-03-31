@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk8htdnlsve6r"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_c6bnj"]
+
+[sub_resource type="TextMesh" id="TextMesh_vkwnb"]
+text = "What 4-letter word
+can be made with these
+3 letters?"
+font = ExtResource("1_c6bnj")
+
+[node name="Sec2IntPuzzle1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_vkwnb")
