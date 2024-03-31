@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwrb8khwilf3l"]
+
+[ext_resource type="Script" path="res://scripts/character_flip.gd" id="1_qr3vy"]
+[ext_resource type="TextMesh" uid="uid://nv5c2vesr2ld" path="res://resources/character_mesh.tres" id="2_yu152"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ipodr"]
+size = Vector3(0.791504, 1.4834, 1.15332)
+
+[node name="Character" type="StaticBody3D"]
+script = ExtResource("1_qr3vy")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.01128e-07, 0, 11.4645, 0, 11.4645, 0, -11.4645, 0, -5.01128e-07, 0, 0, 0)
+mesh = ExtResource("2_yu152")
+skeleton = NodePath("../../..")
+
+[node name="Collder" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104248, 0, 0)
+shape = SubResource("BoxShape3D_ipodr")
