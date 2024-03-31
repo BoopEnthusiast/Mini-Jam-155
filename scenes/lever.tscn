@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://y7wss2pmkpjg"]
+[gd_scene load_steps=11 format=3 uid="uid://y7wss2pmkpjg"]
 
 [ext_resource type="Script" path="res://scripts/lever.gd" id="1_qpim2"]
 [ext_resource type="Script" path="res://scripts_lever_signals.gd" id="2_gsbfl"]
@@ -64,7 +64,10 @@ _data = {
 "lever_push": SubResource("Animation_7x7da")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11ar7"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_fgpti"]
+material = SubResource("StandardMaterial3D_11ar7")
 size = Vector3(3, 0.5, 1)
 
 [node name="Lever" type="Node3D"]
