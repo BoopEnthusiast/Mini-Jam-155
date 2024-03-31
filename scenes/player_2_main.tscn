@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgiw0nwndowpp"]
+[gd_scene load_steps=24 format=3 uid="uid://dgiw0nwndowpp"]
 
 [ext_resource type="PackedScene" uid="uid://cdrqoea37yvyw" path="res://scenes/player.tscn" id="1_6ixuo"]
 [ext_resource type="Texture2D" uid="uid://j6wq2pivlp7x" path="res://resources/Wall_0.png" id="2_bnpoy"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://scenes/num_clues.gd" id="6_ye31l"]
 [ext_resource type="PackedScene" uid="uid://8urt6jbt1ilc" path="res://scenes/sec1_int_puzzle_clue1.tscn" id="7_fkdy5"]
 [ext_resource type="PackedScene" uid="uid://ocd00r36y3vb" path="res://scenes/sec1_int_puzzle2_clue.tscn" id="8_hbr8v"]
+[ext_resource type="PackedScene" uid="uid://dkkemlb7vxxsc" path="res://scenes/Sec2_Cross1.tscn" id="9_dt2nc"]
+[ext_resource type="PackedScene" uid="uid://b2g4uldr5uxst" path="res://scenes/Sec2_Cross2.tscn" id="10_ntcxn"]
+[ext_resource type="PackedScene" uid="uid://ci7aek5vvmiud" path="res://scenes/Sec3_Cross.tscn" id="11_2fy16"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqmxc"]
 resource_name = "material_0"
@@ -170,8 +173,19 @@ shape = SubResource("BoxShape3D_prt2l")
 transform = Transform3D(-20, 0, -1.74846e-06, 0, 20, 0, 1.74846e-06, 0, -20, -0.334792, 8, 10.99)
 mesh = SubResource("TextMesh_dro11")
 
-[node name="Sec1IntPuzzle1Clue" parent="." instance=ExtResource("7_fkdy5")]
-transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -12.5672, 11.5758, 0.0506141)
+[node name="Sec1Clues" type="Node3D" parent="."]
 
-[node name="Sec1IntPuzzle2Clue" parent="." instance=ExtResource("8_hbr8v")]
-transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -17.4762, 8.15293, 27.4056)
+[node name="Sec1IntPuzzle1Clue" parent="Sec1Clues" instance=ExtResource("7_fkdy5")]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, -12.5672, 11.5758, 0.0506141)
+
+[node name="Sec1IntPuzzle2Clue" parent="Sec1Clues" instance=ExtResource("8_hbr8v")]
+transform = Transform3D(-2.5, 0, -3.77489e-07, 0, 2.5, 0, 3.77489e-07, 0, -2.5, -17.4762, 8.15293, 27.4056)
+
+[node name="Sec2Cross1" parent="Sec1Clues" instance=ExtResource("9_dt2nc")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -44.6863, 7.56291, -27.5)
+
+[node name="Sec2Cross2" parent="Sec1Clues" instance=ExtResource("10_ntcxn")]
+transform = Transform3D(-1.09278e-07, 0, 2.5, 0, 2.5, 0, -2.5, 0, -1.09278e-07, -67.5, 8.03583, 5.09565)
+
+[node name="Sec3Cross" parent="Sec1Clues" instance=ExtResource("11_2fy16")]
+transform = Transform3D(-2.5, 0, -2.18557e-07, 0, 2.5, 0, 2.18557e-07, 0, -2.5, -45.0301, 8.21063, 27.5)
