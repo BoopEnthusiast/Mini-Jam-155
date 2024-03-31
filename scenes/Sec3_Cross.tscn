@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci7aek5vvmiud"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_kqgm5"]
+
+[sub_resource type="TextMesh" id="TextMesh_1dmdk"]
+text = "I was thinking of a palindrome,
+but I can’t remember what it was.
+
+Burrito dog?  Nacho rabbit?
+Let me think…"
+font = ExtResource("1_kqgm5")
+
+[node name="Sec3Cross" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TextMesh_1dmdk")

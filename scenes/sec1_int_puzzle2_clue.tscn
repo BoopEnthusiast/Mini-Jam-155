@@ -1,32 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://ocd00r36y3vb"]
+[gd_scene load_steps=7 format=3 uid="uid://ocd00r36y3vb"]
+
+[ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_nr6os"]
 
 [sub_resource type="TextMesh" id="TextMesh_kj4mb"]
 text = "12²"
+font = ExtResource("1_nr6os")
+font_size = 24
 
 [sub_resource type="TextMesh" id="TextMesh_4y2xu"]
 text = "9"
+font = ExtResource("1_nr6os")
+font_size = 24
 
 [sub_resource type="BoxMesh" id="BoxMesh_e1uuf"]
 
 [sub_resource type="TextMesh" id="TextMesh_hujag"]
-text = "X -           - X"
-font_size = 48
+text = "X -       - X"
+font = ExtResource("1_nr6os")
+font_size = 64
 
 [sub_resource type="TextMesh" id="TextMesh_hmpg3"]
 text = "* √169"
+font = ExtResource("1_nr6os")
+font_size = 24
 
 [node name="Sec1IntPuzzle1Clue" type="Node3D"]
 
 [node name="numerator" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, 0, 0)
 mesh = SubResource("TextMesh_kj4mb")
 
 [node name="denominator" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.315, -0.25, 0)
 mesh = SubResource("TextMesh_4y2xu")
 
 [node name="div" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.375, 0, 0, 0, 0.01, 0, 0, 0, 0.04, -0.2, -0.12, 0)
+transform = Transform3D(0.375, 0, 0, 0, 0.01, 0, 0, 0, 0.04, -0.315, -0.12, 0)
 mesh = SubResource("BoxMesh_e1uuf")
 
 [node name="X text" type="MeshInstance3D" parent="."]
