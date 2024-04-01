@@ -7,6 +7,7 @@ var unlock_code: Array[int]
 
 # Get nodes
 @onready var animation_player = $"../AnimationPlayer"
+@onready var audio_stream_player_3d = $AudioStreamPlayer3D
 
 
 func _ready():
@@ -31,7 +32,8 @@ func is_open() -> bool:
 	return open
 
 func check_if_unlocked() -> void:
+	print(numbers)
 	if not open and numbers == unlock_code:
 		open = true
 		animation_player.play("open_door")
-		
+		audio_stream_player_3d.play()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://y7wss2pmkpjg"]
+[gd_scene load_steps=13 format=3 uid="uid://y7wss2pmkpjg"]
 
 [ext_resource type="Script" path="res://scripts/lever.gd" id="1_qpim2"]
 [ext_resource type="Script" path="res://scripts_lever_signals.gd" id="2_gsbfl"]
 [ext_resource type="Material" uid="uid://ctv3a78q7tcpr" path="res://resources/rock_boulder_dry_4k.gltf/rock_dry_orm_mat.tres" id="3_wygjd"]
 [ext_resource type="Material" uid="uid://dp5vo1l766hlg" path="res://resources/plaster_grey_04_4k.gltf/plaster_mat.tres" id="4_tsfiu"]
+[ext_resource type="AudioStream" uid="uid://bty0c785buvtq" path="res://resources/sounds/Change_Number.wav" id="5_06or3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wkmpp"]
 material = ExtResource("3_wygjd")
@@ -95,5 +96,8 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("BoxMesh_fgpti")
 skeleton = NodePath("../LeverBody/LeverMesh")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_06or3")
 
 [connection signal="interacted" from="LeverBody" to="." method="_on_lever_body_interacted"]

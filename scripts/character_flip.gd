@@ -32,3 +32,4 @@ func interact() -> void:
 	if connected_character:
 		connected_character.mesh.mesh.text = current_letter
 	character_changed.emit(current_letter, self)
+	

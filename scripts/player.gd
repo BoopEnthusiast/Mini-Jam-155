@@ -9,6 +9,17 @@ const JUMP_VELOCITY = 4.5
 
 var wind_force := Vector3.ZERO
 
+const FOOT_STEP_001 = preload("res://resources/sounds/Footstep/FootStep-001.wav")
+const FOOT_STEP_002 = preload("res://resources/sounds/Footstep/FootStep-002.wav")
+const FOOT_STEP_003 = preload("res://resources/sounds/Footstep/FootStep-003.wav")
+const FOOT_STEP_004 = preload("res://resources/sounds/Footstep/FootStep-004.wav")
+const FOOT_STEP_005 = preload("res://resources/sounds/Footstep/FootStep-005.wav")
+const FOOT_STEP_006 = preload("res://resources/sounds/Footstep/FootStep-006.wav")
+const FOOT_STEP_007 = preload("res://resources/sounds/Footstep/FootStep-007.wav")
+var footstep_sounds = [FOOT_STEP_001, FOOT_STEP_002, FOOT_STEP_003, FOOT_STEP_004, FOOT_STEP_005, FOOT_STEP_006, FOOT_STEP_007]
+@onready var step_sounds = $StepSounds
+@onready var step_timer = $StepTimer
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -28,7 +39,10 @@ func _ready() -> void:
 func _input(event) -> void:
 	# If escape is pressed reveal the mouse
 	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 	# Get the mouse movement
 	if event is InputEventMouseMotion:
@@ -70,9 +84,16 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+	
+	if velocity.length() > 0 and step_timer.is_stopped() and is_on_floor():
+		var sound = footstep_sounds.pick_random()
+		step_sounds.stream = sound
+		step_sounds.play()
+		step_timer.start()
 	
 	# Apply wind force to character's velocity
 	velocity += wind_force
