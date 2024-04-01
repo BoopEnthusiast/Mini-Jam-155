@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://g7eov86e1pi6"]
+[gd_scene load_steps=7 format=3 uid="uid://g7eov86e1pi6"]
+
+[ext_resource type="Material" uid="uid://dp5vo1l766hlg" path="res://resources/plaster_grey_04_4k.gltf/plaster_mat.tres" id="1_shnmo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bog51"]
+material = ExtResource("1_shnmo")
 size = Vector3(2.5, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_67isq"]

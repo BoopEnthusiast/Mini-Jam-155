@@ -29,3 +29,7 @@ offset_top = 292.0
 offset_right = 608.0
 offset_bottom = 356.0
 texture = ExtResource("2_07a1x")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462304, 0)
+current = true

@@ -1,7 +1,9 @@
-[gd_resource type="TextMesh" load_steps=2 format=3 uid="uid://nv5c2vesr2ld"]
+[gd_resource type="TextMesh" load_steps=3 format=3 uid="uid://nv5c2vesr2ld"]
 
 [ext_resource type="FontFile" uid="uid://d3qf1uawn1jn0" path="res://resources/Ubuntu_Mono/UbuntuMono-Regular.ttf" id="1_sakof"]
+[ext_resource type="Material" uid="uid://dj3anmxc80ssg" path="res://resources/metal_plate_4k.gltf/metal_mat.tres" id="2_unhmg"]
 
 [resource]
+material = ExtResource("2_unhmg")
 text = "N"
 font = ExtResource("1_sakof")

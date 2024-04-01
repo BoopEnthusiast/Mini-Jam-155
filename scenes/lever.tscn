@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://y7wss2pmkpjg"]
+[gd_scene load_steps=12 format=3 uid="uid://y7wss2pmkpjg"]
 
 [ext_resource type="Script" path="res://scripts/lever.gd" id="1_qpim2"]
 [ext_resource type="Script" path="res://scripts_lever_signals.gd" id="2_gsbfl"]
+[ext_resource type="Material" uid="uid://ctv3a78q7tcpr" path="res://resources/rock_boulder_dry_4k.gltf/rock_dry_orm_mat.tres" id="3_wygjd"]
+[ext_resource type="Material" uid="uid://dp5vo1l766hlg" path="res://resources/plaster_grey_04_4k.gltf/plaster_mat.tres" id="4_tsfiu"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wkmpp"]
+material = ExtResource("3_wygjd")
 top_radius = 0.25
 bottom_radius = 0.25
 height = 3.0
@@ -64,10 +67,8 @@ _data = {
 "lever_push": SubResource("Animation_7x7da")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_11ar7"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_fgpti"]
-material = SubResource("StandardMaterial3D_11ar7")
+material = ExtResource("4_tsfiu")
 size = Vector3(3, 0.5, 1)
 
 [node name="Lever" type="Node3D"]

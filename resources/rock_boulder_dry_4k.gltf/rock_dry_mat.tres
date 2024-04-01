@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bff0cuycpnseb"]
+
+[ext_resource type="Texture2D" uid="uid://csm1pyy5twagh" path="res://resources/rock_boulder_dry_4k.gltf/textures/rock_boulder_dry_diff_4k.jpg" id="1_q8pnl"]
+[ext_resource type="Texture2D" uid="uid://btc6ntesrlqs1" path="res://resources/rock_boulder_dry_4k.gltf/textures/rock_boulder_dry_nor_gl_4k.jpg" id="2_rhtcd"]
+
+[resource]
+albedo_texture = ExtResource("1_q8pnl")
+normal_enabled = true
+normal_texture = ExtResource("2_rhtcd")
+heightmap_enabled = true
