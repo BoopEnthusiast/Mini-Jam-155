@@ -10,7 +10,7 @@ Yes"
 font = ExtResource("1_nm7r3")
 
 [sub_resource type="TextMesh" id="TextMesh_alxn4"]
-text = "+"
+text = "x"
 font = ExtResource("1_nm7r3")
 font_size = 127
 
