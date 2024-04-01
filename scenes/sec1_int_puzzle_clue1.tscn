@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://8urt6jbt1ilc"]
+[gd_scene load_steps=4 format=3 uid="uid://by44msmyhwpa1"]
 
 [ext_resource type="FontFile" uid="uid://h8js7k3hyi3r" path="res://resources/Schoolbell-Regular.ttf" id="1_nm7r3"]
 
 [sub_resource type="TextMesh" id="TextMesh_odvk7"]
-text = "Which switch should you pull
-in the cross formation of switches?
+text = "In the cross formation,
+which switch should you pull?
 
-Yes"
+Yes."
 font = ExtResource("1_nm7r3")
 
 [sub_resource type="TextMesh" id="TextMesh_alxn4"]
