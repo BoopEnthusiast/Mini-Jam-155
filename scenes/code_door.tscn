@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://di5my0u7giody"]
+[gd_scene load_steps=14 format=3 uid="uid://di5my0u7giody"]
 
 [ext_resource type="Script" path="res://scripts/CodeDoor.gd" id="1_e7b6b"]
 [ext_resource type="Script" path="res://scenes/code_door_passthrough.gd" id="1_tf2k0"]
 [ext_resource type="Script" path="res://scripts/number_flip.gd" id="2_s65x6"]
+[ext_resource type="FontFile" uid="uid://d3qf1uawn1jn0" path="res://resources/Ubuntu_Mono/UbuntuMono-Regular.ttf" id="4_3tt08"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s41ou"]
 size = Vector3(1, 5, 5)
@@ -15,12 +16,15 @@ size = Vector3(0.169922, 1.42407, 1)
 
 [sub_resource type="TextMesh" id="TextMesh_akdt1"]
 text = "0"
+font = ExtResource("4_3tt08")
 
 [sub_resource type="TextMesh" id="TextMesh_66744"]
 text = "0"
+font = ExtResource("4_3tt08")
 
 [sub_resource type="TextMesh" id="TextMesh_kjmgw"]
 text = "0"
+font = ExtResource("4_3tt08")
 
 [sub_resource type="Animation" id="Animation_5jhdf"]
 length = 0.001
