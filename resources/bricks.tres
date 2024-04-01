@@ -1,4 +1,4 @@
-[gd_resource type="BoxMesh" load_steps=7 format=3 uid="uid://2thc53m4vays"]
+[gd_resource type="BoxMesh" load_steps=7 format=3 uid="uid://b6rg2e8lmh2ah"]
 
 [ext_resource type="Texture2D" uid="uid://bnuegoluusid5" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_Color.png" id="1_e43yy"]
 [ext_resource type="Texture2D" uid="uid://du0mn3c5tjqsq" path="res://resources/Bricks091_2K-PNG/Bricks091_2K-PNG_AmbientOcclusion.png" id="2_4r2kg"]
